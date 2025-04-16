@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Special Gothic Expanded One';
+    src: url('SpecialGothicExpandedOne-Regular.woff2') format('woff2'),
+        url('SpecialGothicExpandedOne-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

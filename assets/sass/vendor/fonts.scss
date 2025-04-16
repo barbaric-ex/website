@@ -1,0 +1,56 @@
+@font-face {
+  font-family: Raleway;
+  src: url("../fonts/Raleway-Regular.woff2");
+  src: url("../fonts/Raleway-Regular.woff2") format("woff2"),
+    url("../fonts/Raleway-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: SpecialGothic;
+  src: url("../fonts/SpecialGothicExpandedOne-Regular.woff2");
+  src: url("../fonts/SpecialGothicExpandedOne-Regular.woff2") format("woff2"),
+    url("../fonts/SpecialGothicExpandedOne-Regular.woff2") format("truetype");
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Open Sans;
+  src: url("../fonts/OpenSans-Regular.woff2");
+  src: url("../fonts/OpenSans-Regular.woff2") format("woff2"),
+    url("../fonts/OpenSans-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+$primary: Raleway, sans-serif;
+$secondary: Open Sans, sans-serif;
+$font-3: SpecialGothic;
+
+body {
+  @include limbo-min {
+    font-size: 20px;
+  }
+  @include tab-max {
+    font-size: 16px;
+  }
+  font-family: $primary;
+  color: var(--b-color);
+  line-height: var(--body-line-height);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $primary;
+  font-weight: 700;
+  color: var(--t-color);
+  line-height: var(--title-line-height);
+}

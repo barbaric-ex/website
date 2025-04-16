@@ -1,0 +1,481 @@
+:root {
+  --font-size-1: 5rem;
+  --font-size-2: 4.5rem;
+  --font-size-3: 4rem;
+  --font-size-4: 3rem;
+  --font-size-5: 2.5rem;
+  --font-size-6: 20px;
+
+  --space-1: 10rem;
+  --space-2: 8rem;
+  --space-3: 6rem;
+  --space-4: 3rem;
+
+  --t-space-1: 4rem;
+  --t-space-2: 3rem;
+  --t-space-3: 2.5rem;
+  --t-space-4: 2rem;
+
+  --color-1: #e94e4e;
+  --color-2: #212121;
+  --color-3: #fcecd4;
+  --color-4: #5a3e36;
+  --color-5: #fff;
+
+  --t-color: #212121;
+  --b-color: #242424;
+  --link-color: #0a85ff;
+
+  --bg-1: #f7f7f7;
+
+  --st: 0.3s all;
+
+  --title-line-height: 1.2;
+  --body-line-height: 1.7;
+
+  @media (min-width: 834.6px) /* Insert the same width as limbo-min variable */ {
+    --site-width: 90%;
+  }
+
+  @media (max-width: 834.5px) /* Insert the same width as tab-max variable */ {
+    --site-width: calc(100% - 50px);
+  }
+  --site-max-width: 1440px;
+}
+
+// Breakpoint sizes
+
+$mob-max: 480.5px;
+$tab-min: 480.6px;
+$tab-max: 834.5px;
+$limbo-min: 834.6px;
+$limbo-max: 1199.5px;
+$desk-min: 1199.6px;
+$sm-desk-max: 1360.5px;
+$md-desk-min: 1360.6px;
+$md-desk-max: 1660.5px;
+$lg-desk-min: 1660.6px;
+$huge-desk-min: 2560px;
+
+@mixin abs {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+@mixin clean-list {
+  padding-left: 0;
+  list-style: none;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+@mixin flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+@mixin flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-center {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin grid-5 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+@mixin grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@mixin grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@mixin grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@mixin rep-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+@mixin rep-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@mixin rep-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@mixin rep-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@mixin bg-cl {
+  background-repeat: no-repeat;
+  background-position: center left;
+}
+
+@mixin bg-cr {
+  background-repeat: no-repeat;
+  background-position: center right;
+}
+
+@mixin bg-c {
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@mixin bg_div {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+// Breakpoints
+
+@mixin mob-only {
+  @media (max-width: $mob-max) {
+    @content;
+  }
+}
+
+@mixin tab-min {
+  @media (min-width: $tab-min) {
+    @content;
+  }
+}
+
+@mixin tab-max {
+  @media (max-width: $tab-max) {
+    @content;
+  }
+}
+
+@mixin tab-only {
+  @media (min-width: $tab-min) and (max-width: $tab-max) {
+    @content;
+  }
+}
+
+@mixin limbo-min {
+  @media (min-width: $limbo-min) {
+    @content;
+  }
+}
+
+@mixin limbo-max {
+  @media (max-width: $limbo-max) {
+    @content;
+  }
+}
+
+@mixin limbo-only {
+  @media (min-width: $limbo-min) and (max-width: $limbo-max) {
+    @content;
+  }
+}
+
+@mixin desk-min {
+  @media (min-width: $desk-min) {
+    @content;
+  }
+}
+
+@mixin sm-desk-only {
+  @media (min-width: $desk-min) and (max-width: $sm-desk-max) {
+    @content;
+  }
+}
+
+@mixin sm-desk-max {
+  @media (max-width: $sm-desk-max) {
+    @content;
+  }
+}
+
+@mixin md-desk-min {
+  @media (min-width: $md-desk-min) {
+    @content;
+  }
+}
+
+@mixin md-desk-max {
+  @media (min-width: $md-desk-max) {
+    @content;
+  }
+}
+
+@mixin md-desk-only {
+  @media (min-width: $md-desk-min) and (max-width: $md-desk-max) {
+    @content;
+  }
+}
+
+@mixin lg-desk-min {
+  @media (min-width: $lg-desk-min) {
+    @content;
+  }
+}
+
+@mixin huge-desk-min {
+  @media (min-width: $huge-desk-min) {
+    @content;
+  }
+}
+
+// Spacings
+
+.space_1 {
+  padding-top: var(--space-1);
+  padding-bottom: var(--space-1);
+}
+
+.space_2 {
+  padding-top: var(--space-2);
+  padding-bottom: var(--space-2);
+}
+
+.space_3 {
+  padding-top: var(--space-3);
+  padding-bottom: var(--space-3);
+}
+
+.space_4 {
+  padding-top: var(--space-4);
+  padding-bottom: var(--space-4);
+}
+
+.space_0_1 {
+  padding-bottom: var(--space-1);
+}
+
+.space_0_2 {
+  padding-bottom: var(--space-2);
+}
+
+.space_0_3 {
+  padding-bottom: var(--space-3);
+}
+
+.space_0_4 {
+  padding-bottom: var(--space-4);
+}
+
+.space_1_0 {
+  padding-top: var(--space-1);
+}
+
+.space_1_2 {
+  padding-top: var(--space-1);
+  padding-bottom: var(--space-2);
+}
+
+.space_1_3 {
+  padding-top: var(--space-1);
+  padding-bottom: var(--space-3);
+}
+
+.space_1_4 {
+  padding-top: var(--space-1);
+  padding-bottom: var(--space-4);
+}
+
+.space_2_0 {
+  padding-top: var(--space-2);
+}
+
+.space_2_1 {
+  padding-top: var(--space-2);
+  padding-bottom: var(--space-1);
+}
+
+.space_2_3 {
+  padding-top: var(--space-2);
+  padding-bottom: var(--space-3);
+}
+
+.space_2_4 {
+  padding-top: var(--space-2);
+  padding-bottom: var(--space-4);
+}
+
+.space_3_0 {
+  padding-top: var(--space-3);
+}
+
+.space_3_1 {
+  padding-top: var(--space-3);
+  padding-bottom: var(--space-1);
+}
+
+.space_3_2 {
+  padding-top: var(--space-3);
+  padding-bottom: var(--space-2);
+}
+
+.space_3_4 {
+  padding-top: var(--space-3);
+  padding-bottom: var(--space-4);
+}
+
+.space_4_0 {
+  padding-top: var(--space-4);
+}
+
+.space_4_1 {
+  padding-top: var(--space-4);
+  padding-bottom: var(--space-1);
+}
+
+.space_4_2 {
+  padding-top: var(--space-4);
+  padding-bottom: var(--space-2);
+}
+
+.space_4_3 {
+  padding-top: var(--space-4);
+  padding-bottom: var(--space-3);
+}
+
+// Title Spacings
+
+.t_space_1 {
+  margin-bottom: var(--t-space-1);
+}
+
+.t_space_2 {
+  margin-bottom: var(--t-space-2);
+}
+
+.t_space_3 {
+  margin-bottom: var(--t-space-3);
+}
+
+.t_space_4 {
+  margin-bottom: var(--t-space-4);
+}
+
+// Buttons
+
+@mixin btn {
+  padding: 1rem 2.5rem;
+  width: fit-content;
+  min-width: 150px;
+  display: inline-flex;
+  box-sizing: border-box;
+  justify-content: center;
+  transition: var(--st);
+  position: relative;
+  overflow: hidden;
+  color: #e7d7d7;
+  font-size: 1.6rem;
+  @include limbo-min {
+    &:hover {
+      border-radius: 0 15px 0 15px;
+    }
+  }
+}
+
+@mixin btn-1 {
+  @include btn;
+  background-color: var(--color-3);
+  color: var(--color-2);
+}
+
+@mixin btn-2 {
+  @include btn;
+  background-color: var(--color-2);
+  &:not(:first-of-type) {
+    @include tab-min {
+      margin-left: 2rem;
+    }
+  }
+}
+
+.btn-1 {
+  @include btn-1;
+}
+
+.btn-2 {
+  @include btn-2;
+}
+
+@mixin bs {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+@mixin ds {
+  filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.1));
+}
+
+@mixin br1 {
+  border-radius: 0.5rem;
+}
+
+@mixin st {
+  transition: var(--st);
+}
+
+html {
+  font-size: 10px;
+  @include md-desk-only {
+    font-size: 8px;
+  }
+  @include sm-desk-only {
+    font-size: 7px;
+  }
+  @include limbo-only {
+    font-size: 7px;
+  }
+  @include tab-only {
+    font-size: 8px;
+  }
+  @include mob-only {
+    font-size: 7px;
+  }
+  :where(.wp-block) {
+    max-width: 90%;
+  }
+}
+
+:root {
+  @include mob-only {
+    --space-1: 6rem;
+    --space-2: 5rem;
+    --space-3: 4rem;
+    --space-4: 3rem;
+  }
+}

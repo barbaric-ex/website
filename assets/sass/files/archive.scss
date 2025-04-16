@@ -1,0 +1,50 @@
+.posts_grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3%;
+
+  h1 {
+    grid-column: 1 / -1;
+  }
+
+  .grid_item {
+    // Nema više potrebe za width jer grid to rješava
+    .gi_title {
+      margin-bottom: 1.8rem;
+      font-size: var(--font-size-5);
+      a {
+        color: var(--t-color);
+      }
+    }
+    .gi_image {
+      aspect-ratio: 16 / 9;
+      margin-bottom: 8px;
+      img {
+        height: 100%;
+        transition: 0.3s ease;
+      }
+    }
+
+    @include desk-min {
+      &:hover img {
+        border-radius: 0 25px 0 25px;
+      }
+    }
+  }
+
+  @include tab-only {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mob-only {
+    grid-template-columns: 1fr;
+  }
+
+  .posts-navigation {
+    grid-column: 1 / -1;
+    .nav-links {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

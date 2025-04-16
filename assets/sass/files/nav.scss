@@ -1,0 +1,259 @@
+.sub-menu {
+  @include clean-list;
+}
+.sub-menu-trigger {
+  svg {
+    stroke: var(--color-1);
+  }
+}
+.top_bar {
+  background-color: var(--color-3);
+  color: #000;
+  text-align: center;
+  padding-block: 8px;
+  .top_bar_inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  p {
+    margin: 0;
+    font-size: 18px;
+    @include mob-only {
+      font-size: 14px;
+    }
+  }
+  a {
+    @include btn-2;
+    margin-left: 16px;
+  }
+}
+@include desk-min {
+  .hamburger {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .header-main {
+    background-color: var(--color-4);
+    z-index: 9;
+    position: relative;
+
+    position: sticky;
+    top: -1px;
+    -webkit-transition: var(--st);
+    transition: var(--st);
+
+    .main-navigation {
+      #primary-menu {
+        > li > a {
+          transition: 0.3s;
+          color: var(--color-3); // promijeni po potrebi
+          &:hover {
+            color: var(--color-1);
+          }
+        }
+
+        .sub-menu a {
+          color: var(--color-3); // i submenu linkovi
+          &:hover {
+            color: var(--color-1);
+          }
+        }
+
+        .sub-menu-trigger svg {
+          stroke: var(--color-1);
+        }
+      }
+    }
+
+    &[is-pinned] {
+      background-color: var(--color-2);
+      .header-main_inner {
+        .site-logo {
+          width: 150px;
+        }
+      }
+
+      // Promjena boje linkova kada je header "pinned"
+      .main-navigation {
+        #primary-menu {
+          > li > a {
+            color: var(--color-3); // promijeni po potrebi
+            &:hover {
+              color: var(--color-1);
+            }
+          }
+
+          .sub-menu a {
+            color: var(--color-1); // i submenu linkovi
+            &:hover {
+              color: var(--color-3);
+            }
+          }
+
+          .sub-menu-trigger svg {
+            stroke: var(--color-1);
+          }
+        }
+      }
+    }
+
+    .header-main_inner {
+      @include flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-block: 1rem;
+      position: relative;
+
+      .site-logo {
+        transition: 0.2s ease-in-out;
+        width: 200px;
+        margin: 0;
+
+        img {
+          object-fit: contain;
+          height: auto;
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .main-navigation {
+    #primary-menu {
+      @include flex;
+      @include clean-list;
+
+      ul {
+        &.sub-menu {
+          background-color: #fff;
+          min-width: 200px;
+          filter: drop-shadow(2.5px 2.5px 5px rgba(0, 0, 0, 0.05));
+          border-radius: 4px;
+          @include st;
+          position: absolute;
+          opacity: 0;
+          display: block;
+          pointer-events: none;
+          transform: translateY(30px);
+
+          li:not(:last-child) {
+            a {
+              margin-bottom: 0.5rem;
+            }
+          }
+
+          li {
+            padding: 0.5rem 1rem 0.5rem 2rem;
+
+            &:first-child {
+              padding-top: 1rem;
+            }
+
+            &:last-child {
+              padding-bottom: 1rem;
+            }
+
+            a {
+              width: 100%;
+              display: flex;
+            }
+          }
+        }
+
+        ul {
+          left: 100%;
+          top: 0;
+
+          ul {
+            left: unset;
+            right: 100%;
+            top: 0;
+          }
+        }
+      }
+
+      > li > .sub-menu {
+        top: 100%;
+      }
+
+      .menu-item-has-children {
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        a {
+          text-decoration: none;
+        }
+
+        &:hover > ul.sub-menu {
+          opacity: 1;
+          transform: translateY(0);
+          pointer-events: all;
+        }
+      }
+
+      > li {
+        &:not(:last-child) {
+          margin-right: 6rem;
+        }
+
+        &.menu-item-has-children {
+          margin-right: 4.9rem;
+
+          li a {
+            padding-right: 5px;
+            font-size: 14px;
+          }
+        }
+
+        > a {
+          font-size: 16px;
+          font-weight: 700;
+        }
+
+        a {
+          color: var(--t-color); // default boja linkova
+        }
+
+        .sub-menu-trigger {
+          float: right;
+          display: flex;
+          transform: rotate(45deg);
+          margin-left: 1rem;
+          pointer-events: none;
+          cursor: pointer;
+          @include st;
+
+          svg {
+            stroke: var(--color-1);
+          }
+        }
+      }
+
+      li li:hover {
+        > .sub-menu-trigger {
+          transform: rotate(0deg);
+        }
+      }
+
+      li li li:hover {
+        > .sub-menu-trigger {
+          transform: rotate(180deg);
+        }
+      }
+
+      li:hover {
+        > .sub-menu-trigger {
+          transform: rotate(90deg);
+          top: 1px;
+          right: 4px;
+        }
+      }
+    }
+  }
+}

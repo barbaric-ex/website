@@ -1,0 +1,59 @@
+@mixin stacked-space {
+  margin-bottom: 5rem;
+}
+
+.st_section_inner {
+  @include flex-between;
+  &.mob-img-first,
+  &.mob-ib-first {
+    @include tab-min {
+      &.ib-right {
+        flex-direction: row-reverse;
+      }
+      > div {
+        width: 48%;
+      }
+    }
+  }
+  &.tab-img-first,
+  &.tab-ib-first {
+    @include limbo-min {
+      &.ib-right {
+        flex-direction: row-reverse;
+      }
+      > div {
+        width: 48%;
+      }
+    }
+  }
+  &.tab-ib-first {
+    @include tab-max {
+      .left {
+        @include stacked-space;
+      }
+    }
+  }
+  &.tab-img-first {
+    @include tab-max {
+      flex-direction: column-reverse;
+      .right {
+        @include stacked-space;
+      }
+    }
+  }
+  &.mob-ib-first {
+    @include mob-only {
+      .left {
+        @include stacked-space;
+      }
+    }
+  }
+  &.mob-img-first {
+    @include mob-only {
+      flex-direction: column-reverse;
+      .right {
+        @include stacked-space;
+      }
+    }
+  }
+}

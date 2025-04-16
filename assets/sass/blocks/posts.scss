@@ -1,0 +1,23 @@
+@mixin stacked-space {
+  margin-bottom: 5rem;
+}
+
+.st_posts {
+  .st_section_inner {
+    display: block;
+    .wrapper {
+      margin-bottom: 50px;
+    }
+
+    .post_list_wrap {
+      .btn-1 {
+        background-color: var(--color-4);
+        color: var(--color-3);
+      }
+
+      .entry-content {
+        margin-bottom: 30px;
+      }
+    }
+  }
+}

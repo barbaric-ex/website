@@ -1,0 +1,22 @@
+.st_info_boxes {
+  .st_info_boxes_inner {
+    display: grid;
+    gap: 5rem;
+    .ib_image {
+      aspect-ratio: 1 / 1;
+    }
+    figure {
+      margin-bottom: var(--space-4);
+    }
+    .st_col {
+      @include flex-col;
+      .btns {
+        margin-top: auto;
+        .btn-1 {
+          background-color: var(--color-4);
+          color: var(--color-3);
+        }
+      }
+    }
+  }
+}

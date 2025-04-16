@@ -1,0 +1,145 @@
+@mixin stacked-space {
+  margin-bottom: 5rem;
+}
+
+@mixin br1 {
+  border-radius: 0.5rem;
+}
+
+.st_test {
+  .st_section_inner {
+    .left {
+      .st_section_title {
+        color: var(--color-3);
+      }
+      .st_section_text {
+        color: var(--color-3);
+      }
+      .btns {
+        margin-top: 50px;
+      }
+    }
+
+    .post_wrapper {
+      .posts_grid {
+        .grid_item {
+          @include tab-max {
+            margin-top: 40px;
+          }
+          .gi_title {
+            a {
+              color: var(--color-3) !important;
+            }
+          }
+          .entry-content {
+            color: var(--color-3) !important;
+            margin-bottom: 20px;
+          }
+        }
+      }
+      width: 100% !important;
+
+      @include limbo-min {
+        margin-top: 60px;
+      }
+
+      @include limbo-max {
+        margin-bottom: 60px;
+      }
+
+      @include mob-only {
+        margin-bottom: 110px;
+      }
+    }
+    @include tab-max {
+      .image {
+        height: 320px;
+      }
+    }
+
+    .left {
+      padding: 20px;
+      @include tab-max {
+        padding: 0px;
+      }
+    }
+    @include flex-between;
+
+    &.mob-img-first,
+    &.mob-ib-first {
+      @include tab-min {
+      }
+    }
+
+    &.tab-img-first,
+    &.tab-ib-first {
+      @include limbo-min {
+        &.ib-right {
+          flex-direction: row-reverse;
+        }
+        > div {
+          width: 44%;
+        }
+      }
+    }
+
+    &.tab-ib-first {
+      @include tab-max {
+        .left {
+          @include stacked-space;
+        }
+      }
+    }
+
+    &.tab-img-first {
+      @include tab-max {
+        flex-direction: column-reverse;
+        .right {
+          @include stacked-space;
+        }
+      }
+    }
+
+    &.mob-ib-first {
+      @include mob-only {
+        .left {
+          @include stacked-space;
+        }
+      }
+    }
+
+    &.mob-img-first {
+      @include mob-only {
+        flex-direction: column-reverse;
+        .right {
+          @include stacked-space;
+        }
+      }
+    }
+
+    .st_section_subtitle {
+      font-size: 2rem; // Postavljanje veličine fonta
+      color: #ece5e5; // Postavljanje boje teksta
+      font-weight: 600; // Povećanje težine fonta
+      margin-bottom: 1rem; // Razmak ispod naslova
+    }
+
+    .btns {
+      .btn-2 {
+        border-radius: 12px;
+        transition: all 0.3s ease; // glatka animacija
+
+        @include limbo-max {
+          margin-left: 0rem;
+          margin-top: 2rem;
+        }
+
+        @include limbo-min {
+          &:hover {
+            opacity: 0.7;
+          }
+        }
+      }
+    }
+  }
+}

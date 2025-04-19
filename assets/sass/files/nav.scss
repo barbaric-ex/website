@@ -261,6 +261,7 @@
 .btns-header {
   .btn-1 {
     font-size: 16px;
+    color: rgb(233, 116, 7) !important;
   }
   @include limbo-max {
     display: none;

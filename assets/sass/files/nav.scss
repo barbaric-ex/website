@@ -66,7 +66,7 @@
           }
           transition: 0.3s;
           color: var(--color-3); // promijeni po potrebi
-          &:hover ::after {
+          &:hover::after {
             width: 100%;
           }
         }

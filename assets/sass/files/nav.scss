@@ -50,7 +50,8 @@
     .main-navigation {
       #primary-menu {
         > li > a {
-          ::after {
+          position: relative;
+          &::after {
             content: "";
             bottom: 7px;
             left: 0;

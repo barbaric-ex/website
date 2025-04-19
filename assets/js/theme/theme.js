@@ -43,4 +43,23 @@ jQuery(document).ready(function ($) {
       header.removeAttribute("is-pinned");
     }
   });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuLinks = document.querySelectorAll(
+      '#primary-menu > li > a[href^="#"]'
+    );
+
+    function removeCurrentClasses() {
+      document.querySelectorAll("#primary-menu > li").forEach((li) => {
+        li.classList.remove("current-menu-item");
+      });
+    }
+
+    menuLinks.forEach((link) => {
+      link.addEventListener("click", function () {
+        removeCurrentClasses();
+        this.parentElement.classList.add("current-menu-item");
+      });
+    });
+  });
 });

@@ -393,7 +393,7 @@ $huge-desk-min: 2560px;
 @mixin btn {
   padding: 1rem 2.5rem;
   width: fit-content;
-  min-width: 150px;
+  min-width: 170px;
   display: inline-flex;
   box-sizing: border-box;
   justify-content: center;
@@ -401,7 +401,7 @@ $huge-desk-min: 2560px;
   position: relative;
   overflow: hidden;
   color: #e7d7d7;
-  font-size: 1.6rem;
+  font-size: 2rem;
   @include limbo-min {
     &:hover {
       border-radius: 0 15px 0 15px;
@@ -411,13 +411,14 @@ $huge-desk-min: 2560px;
 
 @mixin btn-1 {
   @include btn;
-  background-color: var(--color-3);
-  color: var(--color-2);
+  background-color: var(--color-3) !important;
+  color: var(--color-2) !important;
+  border-radius: 0;
 }
 
 @mixin btn-2 {
   @include btn;
-  background-color: var(--color-2);
+  background-color: var(--color-4);
   &:not(:first-of-type) {
     @include tab-min {
       margin-left: 2rem;

@@ -130,7 +130,7 @@
 
       ul {
         &.sub-menu {
-          background-color: #fff;
+          background-color: var(--color-4);
           min-width: 200px;
           filter: drop-shadow(2.5px 2.5px 5px rgba(0, 0, 0, 0.05));
           border-radius: 4px;
@@ -255,5 +255,20 @@
         }
       }
     }
+  }
+}
+
+.btns-header {
+  .btn-1 {
+    font-size: 16px;
+  }
+  @include limbo-max {
+    display: none;
+  }
+}
+
+.header-main[is-pinned] .btns-header {
+  .btn-1 {
+    padding: 0.7rem 2.5rem;
   }
 }

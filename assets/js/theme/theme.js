@@ -11,23 +11,29 @@ jQuery(document).ready(function ($) {
           scrollTop: target.offset().top,
         },
         800
-      ); // 800ms trajanje animacije
+      );
+
+      // Ako smo na mobilnoj verziji i kliknemo na link, zatvori meni
+      if ($(window).width() < 1199.5) {
+        $("#primary-menu").fadeOut();
+        $(".menu-toggle").removeClass("menu-open").prop("checked", false);
+      }
     }
   });
-  // Mobile navigation
 
+  // Mobile navigation
   $(".menu-toggle").click(function () {
     $("#primary-menu").fadeToggle();
     $(this).toggleClass("menu-open");
   });
 
   // Sub Menu Trigger
-
   $(".sub-menu-trigger").click(function () {
     $(this).parent().toggleClass("sub-menu-open");
     $(this).siblings(".sub-menu").slideToggle();
   });
 
+  // Sticky header
   window.addEventListener("scroll", function () {
     const header = document.getElementById("masthead");
 

@@ -30,7 +30,7 @@ $excerpt = get_the_excerpt();
         }
     ?>
         <div class="entry-content"> <?php echo $trimmed_excerpt;  ?> </div>
-        <a class="btn btn-1" href="<?php echo get_the_permalink(); ?>">Read More</a>
+        <a class="btn btn-2" href="<?php echo get_the_permalink(); ?>">Read More</a>
 
     <?php endif; ?>
 

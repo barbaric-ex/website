@@ -1,25 +1,52 @@
+.contact_section {
+}
+
 .st_contact_block {
+  .st_contact_block_inner {
+    display: flex;
+
+    @include tab-min {
+      flex-direction: column; // stacked layout on smaller screens
+    }
+  }
+
+  .right {
+    @include mob-only {
+      width: 100%;
+    }
+
+    @include tab-min {
+      width: 100%;
+    }
+  }
+
   .intro_title {
     color: var(--color-3);
   }
+
   .intro_text {
     p {
       color: var(--color-3);
     }
   }
+
   .wpforms-container {
     .wpforms-field {
       .wpforms-first {
         margin-bottom: 20px;
       }
+
       margin-bottom: 20px;
+
       label {
         display: none;
       }
+
       fieldset {
         padding: 0;
         border: none;
       }
+
       .wpforms-field-label {
         font-size: 18px;
         color: var(--color-3);
@@ -28,9 +55,11 @@
         background-size: 20px;
         display: none;
       }
+
       input {
         background-color: rgba(0, 255, 255, 0);
       }
+
       input,
       textarea,
       select {
@@ -38,6 +67,7 @@
         font-size: 18px;
         padding: 1rem;
         border-bottom: 2px solid var(--color-3);
+
         @include mob-only {
           font-size: 16px;
         }
@@ -45,47 +75,60 @@
         option {
           font-size: 16px;
         }
+
         &:focus,
         &.wpforms-valid {
           outline: none;
           border-color: var(--color-1);
         }
+
         &.wpforms-error {
           border-width: 0 0 1px 0 !important;
         }
+
         &::placeholder {
           font-size: 16px;
+          color: var(--color-3) !important;
         }
       }
+
       select {
         cursor: pointer;
         background-image: url(../icons/contact/chevron-down.svg);
         background-position: top 1.3rem right 1rem;
       }
+
       .wpforms-error[role="alert"] {
         font-size: 12px;
       }
 
       &.wpforms-field-name .wpforms-field-label {
       }
+
       &.wpforms-field-email .wpforms-field-label {
       }
+
       &.wpforms-field-phone .wpforms-field-label {
         background-image: url(../icons/contact/smartphone.svg);
       }
+
       &.wpforms-field-textarea .wpforms-field-label {
         background-image: url(../icons/contact/pencil.svg);
       }
+
       &.wpforms-field-address .wpforms-field-label {
         background-image: url(../icons/contact/map-pin.svg);
       }
+
       &.wpforms-field-date-time .wpforms-field-label {
         background-image: url(../icons/contact/calendar.svg);
       }
+
       &.wpforms-field-checkbox .wpforms-field-label {
         background-image: url(../icons/contact/check-square.svg);
         margin-bottom: 1rem;
       }
+
       &.wpforms-field-radio .wpforms-field-label {
         background-image: url(../icons/contact/check-square.svg);
         margin-bottom: 1rem;
@@ -97,38 +140,47 @@
       &.wpforms-list-inline {
         ul {
           display: flex;
+
           li {
             margin-right: 3rem;
           }
         }
       }
+
       &.wpforms-list-2-columns {
         ul {
           display: grid;
+
           @include tab-min {
             grid-template-columns: 1fr 1fr;
           }
         }
       }
+
       &.wpforms-list-3-columns {
         ul {
           display: grid;
+
           @include limbo-min {
             grid-template-columns: 1fr 1fr 1fr;
           }
+
           @include tab-only {
             grid-template-columns: 1fr 1fr;
           }
         }
       }
+
       ul {
         @include clean-list;
 
         li {
           font-size: 16px;
+
           input {
             display: none;
           }
+
           label {
             background-size: 18px;
             background-position: center left;
@@ -139,24 +191,28 @@
         }
       }
     }
+
     .wpforms-field-checkbox {
       ul {
         li {
           label {
             background-image: url(../icons/square.svg);
           }
+
           input:checked + label {
             background-image: url(../icons/check-square.svg);
           }
         }
       }
     }
+
     .wpforms-field-radio {
       ul {
         li {
           label {
             background-image: url(../icons/contact/circle.svg);
           }
+
           input:checked + label {
             background-image: url(../icons/contact/check-circle.svg);
           }
@@ -167,6 +223,8 @@
     .wpforms-submit {
       margin-top: 30px;
       @include btn-1;
+      display: flex;
+      align-items: center;
       cursor: pointer;
     }
   }

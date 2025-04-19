@@ -1,10 +1,10 @@
 {
-    "key": "ui_options_page_67fcaf328b76d",
-    "title": "Header",
+    "key": "ui_options_page_6800aeabc72ef",
+    "title": "Header2",
     "active": true,
     "menu_order": 0,
-    "page_title": "Header",
-    "menu_slug": "header",
+    "page_title": "Header2",
+    "menu_slug": "header2",
     "parent_slug": "site-general-settings",
     "advanced_configuration": 0,
     "icon_url": "",
@@ -18,5 +18,5 @@
     "data_storage": "options",
     "post_id": "",
     "autoload": 0,
-    "modified": 1744613213
+    "modified": 1744875191
 }

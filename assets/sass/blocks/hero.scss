@@ -16,6 +16,7 @@
 
 .st_hero {
   .st_section_inner {
+    position: relative;
     height: 100%;
     @include flex-center;
     text-align: center;
@@ -53,6 +54,25 @@
     @include bg_main;
     @include bg-c;
     background-size: cover;
+  }
+
+  .overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+    @include desk-min {
+      min-height: 900px;
+    }
+    @include limbo-max {
+      min-height: 700px;
+    }
+    @include tab-max {
+      min-height: 500px;
+    }
+    @include mob-only {
+      min-height: 350px;
+    }
   }
 
   @include desk-min {

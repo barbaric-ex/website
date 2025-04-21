@@ -28,7 +28,6 @@ if (! empty($stack)) {
 
 
     <?php get_template_part('components/hero-bcg'); ?>
-
     <div class="<?php echo $sec_in_class ?>">
         <?php
         $title = get_field('title');

@@ -414,6 +414,11 @@ $huge-desk-min: 2560px;
   background-color: var(--color-3) !important;
   color: var(--color-2) !important;
   border-radius: 0;
+  @include limbo-min {
+    &:hover {
+      background-color: greenyellow !important;
+    }
+  }
 }
 
 @mixin btn-2 {

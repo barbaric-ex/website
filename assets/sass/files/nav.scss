@@ -52,6 +52,10 @@
         > li > a {
           padding-block: 10px;
           position: relative;
+
+          &:hover {
+            color: rgb(0, 255, 64);
+          }
           &::after {
             content: "";
             bottom: 7px;
@@ -66,6 +70,7 @@
           }
           transition: 0.3s;
           color: var(--color-3); // promijeni po potrebi
+
           &:hover::after {
             width: 100%;
           }
